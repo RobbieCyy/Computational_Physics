@@ -1,8 +1,40 @@
 #include <iostream>
-#include <fstream>
 #include <string>
 
 using namespace std;
+
+/*
+================================================================================
+Program Description
+--------------------------------------------------------------------------------
+This program contains the following function/method/subroutines:
+
+1. char * double_2_ieee_method_1:
+	This method converts a double to a c string of its IEEE 754 format, by using
+	the definition of double-precision floating point format of IEEE 754 2008 
+	standard.
+
+2. double ieee_2_double_method_1:
+	This method converts a c string of IEEE 754 format to a double, by using the
+	definition of double-precision floating point format of IEEE 754 2008
+	standard.
+
+3. char * double_2_ieee_method_2:
+	This method converts a double to a c string of its IEEE 754 format, by
+	explicitly converting the double to a long long, reading the converted
+	number bit by bit, and writing these bits into the string.
+
+4. double ieee_2_double_method_2:
+	This method converts a c string of IEEE 754 format to a double, by
+	converting the string to a long long and then explicitly convert the long 
+	long to a double.
+
+The other methods are for presentation of the results.
+
+Detailed explanation of the algorithm and the results can be found in the
+report.
+================================================================================
+*/
 
 // Convert by definition (IEEE 754)
 // ** Subnormal numbers are NOT considered **
@@ -116,7 +148,7 @@ char * double_2_ieee_method_2(double x) {
 	
 	cout << "Convert " << x << " by method 2;" << endl;
 
-	// Fill result fromt the back 'bit' by 'bit'
+	// Fill result from the back 'bit' by 'bit'
 	for (int i = 63; i >= 0; i--) {
 		result[i] = (char)(int('0') + ((*byte) & 1));
 		*byte >>= 1;
@@ -131,11 +163,13 @@ double ieee_2_double_method_2(char * s) {
 
 	cout << "Convert back by method 2:" << endl;
 
+	// Convert the string to long long
 	for (int i = 0; i < 64; i++) {
 		result <<= 1;
 		result += (int)(s[i]) - (int)'0';
 	}
 
+	// Converting the long long to a double
 	return *((double *)(&result));
 }
 
