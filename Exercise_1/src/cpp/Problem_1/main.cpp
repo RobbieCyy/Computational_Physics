@@ -8,7 +8,7 @@ using namespace std;
 ================================================================================
 Program Description
 --------------------------------------------------------------------------------
-This program contains the following function/method/subroutines:
+This program contains the following functions:
 
 1. char * double_2_ieee_method_1:
 	This method converts a double to a c string of its IEEE 754 format, by using
