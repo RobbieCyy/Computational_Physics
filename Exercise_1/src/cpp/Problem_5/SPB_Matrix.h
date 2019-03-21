@@ -81,7 +81,7 @@ public:
 // Operator for printing vectors
 ostream & operator << (ostream & out, const vector<double> vec) {
 	for (int i = 0; i < int(vec.size()); i++) {
-		out << setw(16) << setprecision(4) << ((abs(vec[i]) < 0.00001) ? 0 : vec[i]);
+		out << setw(16) << setprecision(8) << ((abs(vec[i]) < 0.00001) ? 0 : vec[i]) << endl;
 	}
 	return out;
 }

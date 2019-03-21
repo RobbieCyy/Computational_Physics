@@ -46,6 +46,7 @@ void Example_matrix_generator(int n, SPB_Matrix & A) {
 }
 
 void Example_b_generator(int n, vector<double> & b) {
+	b.clear();
 	b.resize(n, 120);
 	b[0] = b[n - 1] = 60;
 	return;
@@ -84,6 +85,7 @@ int main() {
 	clog.rdbuf(log.rdbuf());
 	
 	Show_example(4, A, b);
+	Show_example(10, A, b);
 	Show_example(100, A, b);
 	Show_example(10000, A, b);
 
