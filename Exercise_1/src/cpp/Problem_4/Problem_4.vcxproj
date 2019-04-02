@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1A321460-1D6E-4479-9C81-AAFE6F2AA070}</ProjectGuid>
+    <ProjectGuid>{D8F49FAF-E3DB-4457-8424-13DB67112FA7}</ProjectGuid>
     <RootNamespace>Problem_4</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -111,6 +111,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="General_matrix.h" />
+    <ClInclude Include="SPB_Matrix.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -2,20 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6d6ef2b-fdf5-4119-b8ec-e9f482177fe2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Problem_6.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cpp/.vs/Exercise_1/v14/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/.vs/Exercise_1/v14/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Debug/Problem_1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Debug/Problem_1.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Debug/Problem_1.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Debug/Problem_1.ilk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Debug/Problem_1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Debug/Problem_1.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Debug/Problem_2.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Debug/Problem_2.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Debug/Problem_2.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Debug/Problem_2.ilk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Debug/Problem_2.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Debug/Problem_2.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cpp/Debug/Problem_5.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Debug/Problem_5.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cpp/Debug/Problem_5.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Debug/Problem_5.ilk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cpp/Debug/Problem_5.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Debug/Problem_5.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cpp/Exercise_1.VC.db" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Exercise_1.VC.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Exercise_1.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Exercise_1.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_1/Debug/Problem_1.log" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_1/Debug/Problem_1.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_1/Debug/Problem_1.tlog/CL.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_1/Debug/Problem_1.tlog/CL.command.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_1/Debug/Problem_1.tlog/CL.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_1/Debug/Problem_1.tlog/CL.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_1/Debug/Problem_1.tlog/CL.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_1/Debug/Problem_1.tlog/CL.write.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_1/Debug/Problem_1.tlog/Problem_1.lastbuildstate" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_1/Debug/Problem_1.tlog/Problem_1.lastbuildstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_1/Debug/Problem_1.tlog/link.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_1/Debug/Problem_1.tlog/link.command.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_1/Debug/Problem_1.tlog/link.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_1/Debug/Problem_1.tlog/link.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_1/Debug/Problem_1.tlog/link.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_1/Debug/Problem_1.tlog/link.write.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_1/Debug/main.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_1/Debug/main.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_1/Debug/vc140.idb" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_1/Debug/vc140.idb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_1/Debug/vc140.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_1/Debug/vc140.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_2/Debug/Problem_2.log" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_2/Debug/Problem_2.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_2/Debug/Problem_2.tlog/CL.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_2/Debug/Problem_2.tlog/CL.command.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_2/Debug/Problem_2.tlog/CL.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_2/Debug/Problem_2.tlog/CL.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_2/Debug/Problem_2.tlog/CL.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_2/Debug/Problem_2.tlog/CL.write.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_2/Debug/Problem_2.tlog/Problem_2.lastbuildstate" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_2/Debug/Problem_2.tlog/Problem_2.lastbuildstate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_2/Debug/Problem_2.tlog/link.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_2/Debug/Problem_2.tlog/link.command.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_2/Debug/Problem_2.tlog/link.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_2/Debug/Problem_2.tlog/link.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_2/Debug/Problem_2.tlog/link.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_2/Debug/Problem_2.tlog/link.write.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_2/Debug/main.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_2/Debug/main.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_2/Debug/vc140.idb" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_2/Debug/vc140.idb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_2/Debug/vc140.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_2/Debug/vc140.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_4/Problem_4.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_4/Problem_4.vcxproj.filters" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_4/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_5/Debug/Problem_5.tlog/link.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_5/Debug/Problem_5.tlog/link.read.1.tlog" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cpp/Problem_5/Debug/main.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_5/Debug/main.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cpp/Problem_5/Debug/vc140.idb" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_5/Debug/vc140.idb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cpp/Problem_5/Debug/vc140.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_5/Debug/vc140.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cpp/Problem_5/SPB_Matrix.h" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_5/SPB_Matrix.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cpp/Problem_5/log.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cpp/Problem_5/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_5/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_6/Problem_6.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_6/Problem_6.vcxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_6/Problem_6.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_6/Problem_6.vcxproj.filters" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cpp/Problem_6/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../cpp/Problem_6/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Problem_6.py" beforeDir="false" afterPath="$PROJECT_DIR$/Problem_6.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,13 +60,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Problem_6.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1254">
-              <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1482">
+              <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Problem_4.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -55,7 +89,9 @@
     <option name="width" value="1346" />
     <option name="height" value="688" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -150,7 +186,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3295082" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3295082" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -173,15 +209,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/result.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/Problem_6.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1254">
-          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1482">
+          <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Problem_4.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

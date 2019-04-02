@@ -88,7 +88,6 @@ char * double_2_ieee_method_1(double x) {
 			x--;
 		}
 	}
-
 	return result;
 }
 
