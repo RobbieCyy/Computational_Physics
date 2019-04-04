@@ -4,39 +4,6 @@
 
 using namespace std;
 
-/*
-================================================================================
-Program Description
---------------------------------------------------------------------------------
-This program contains the following functions:
-
-1. char * double_2_ieee_method_1:
-	This method converts a double to a c string of its IEEE 754 format, by using
-	the definition of double-precision floating point format of IEEE 754 2008 
-	standard.
-
-2. double ieee_2_double_method_1:
-	This method converts a c string of IEEE 754 format to a double, by using the
-	definition of double-precision floating point format of IEEE 754 2008
-	standard.
-
-3. char * double_2_ieee_method_2:
-	This method converts a double to a c string of its IEEE 754 format, by
-	explicitly converting the double to a long long, reading the converted
-	number bit by bit, and writing these bits into the string.
-
-4. double ieee_2_double_method_2:
-	This method converts a c string of IEEE 754 format to a double, by
-	converting the string to a long long and then explicitly convert the long 
-	long to a double.
-
-The other methods are for presentation of the results.
-
-Detailed explanation of the algorithm and the results can be found in the
-report.
-================================================================================
-*/
-
 // Convert by definition (IEEE 754)
 // ** Subnormal numbers are NOT considered **
 char * double_2_ieee_method_1(double x) {
@@ -136,6 +103,7 @@ double ieee_2_double_method_1(char * s) {
 // Convert by explicit type conversion
 char * double_2_ieee_method_2(double x) {
 	char * result = new char[64];
+	// Convertion from (double *) to (long long *)
 	long long * byte = (long long *)(&x);	// sizeof(long long)=sizeof(double)=8
 
 	memset(result, '0', 64);

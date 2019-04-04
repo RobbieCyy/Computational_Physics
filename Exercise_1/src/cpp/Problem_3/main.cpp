@@ -10,6 +10,7 @@ double a_prev;
 double b_prev;
 ofstream out("result.txt");
 
+// The core of the ODE solver, where magic happens (lol)
 void solve_core() {
 // Method 1
 // Naive iteration
@@ -52,35 +53,45 @@ void solve_core() {
 
 }
 
+// The outer wrapper of the ODE solver
 void solver() {
 	double t_now = 0;
 	int n = 0;
+	// Get the parameters
 	cin >> t;
 	cin >> delta;
+	// Print parameters into the output file
 	out << "a = " << setw(16) << setprecision(4) << a << endl;
 	out << "b = " << setw(16) << setprecision(4) << b << endl;
 	out << "tau_a = " << setw(16) << setprecision(4) << tau_a << endl;
 	out << "tau_b = " << setw(16) << setprecision(4) << tau_b << endl;
 	out << "t = " << setw(16) << setprecision(4) << t << endl;
 	out << "delta = " << setw(16) << setprecision(4) << delta << endl;
+	// In actual implementation, it suffices to restore only the results of this iteration and the previes iteration
 	a_prev = a;
 	b_prev = b;
+	// Iteration
 	while (t_now <= t) {
 		n++;
 		out << setw(16) << setprecision(4) << t_now << setw(16) << setprecision(4) << a << setw(16) << setprecision(4) << b << endl;
+		// Different methods vary here.
 		solve_core();
 		t_now += delta;
+		// Update the results
 		a_prev = a;
 		b_prev = b;
 	}
 	out << setw(16) << setprecision(6) << t_now << setw(16) << setprecision(4) << a << setw(16) << setprecision(4) << b << endl;
+	// Linear intrapolate for the result, if t is not a multiple of Delta t 
 	a = ((t - t_now) / delta + 1) * (a - a_prev) + a;
 	b = ((t - t_now) / delta + 1) * (b - b_prev) + b;
 }
 
 int main() {
 	a = b = 1;
+	cout << "Input the parameters in the following order: tau_a, tau_b, t, Delta t" << endl;
 	cin >> tau_a >> tau_b;
+	// Solve the ODE
 	solver();
 	cout << setw(16) << setprecision(4) << a << setw(16) << setprecision(4) << b << endl;
 	getchar();

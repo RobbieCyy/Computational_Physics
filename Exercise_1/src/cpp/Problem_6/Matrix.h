@@ -72,6 +72,7 @@ matrix operator * (matrix & A, matrix & B) {
 	if (A.m == B.n) {
 		for (int i = 0; i < A.n; i++) {
 			for (int j = 0; j < B.m; j++) {
+// Parallelization by openmp
 #pragma omp for
 				for (int k = 0; k < A.n; k++) {
 					result.data[i][j] += A.data[i][k] * B.data[k][j];

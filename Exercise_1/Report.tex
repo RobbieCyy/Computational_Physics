@@ -180,7 +180,7 @@ A_0 x_0+A_1 x_1&=\frac{2}{5}
 \begin{equation}
 	N_A=\exp(-\frac{t}{\tau_{A}}),\quad N_B=\frac{\tau_{A}\exp(-\frac{t}{\tau_{B}})+\tau_{B}(\exp(-\frac{t}{\tau_{A}})-2\exp(-\frac{t}{\tau_{B}}))}{\tau_{A}-\tau_{B}}
 \end{equation}
-笔者考虑了下面四种不同的算法(伪代码中将$N_A$和$N_B$分别记作\texttt{a}, \texttt{b}): 
+我考虑了下面四种不同的算法(伪代码中将$N_A$和$N_B$分别记作\texttt{a}, \texttt{b}): 
 \begin{enumerate}
 \item Naive iteration
 \begin{lstlisting}
@@ -223,7 +223,7 @@ A_0 x_0+A_1 x_1&=\frac{2}{5}
 源代码见附录\ref{subsec:Q_3},或\texttt{src/Problem\_3/main.cpp}.
 \subsection{结果}
 \subsubsection{几种方法的比较}
-笔者首先比较了不同算法在$\tau_{A}=\SI{1}{\second}, \tau_{B}=\SI{10}{\second}, \Delta t=\SI{0.2}{\second}$的情况下的误差, 以找到其中误差最小的方法.图\ref{fig:Q-3-1}、\ref{fig:Q-3-2}、\ref{fig:Q-3-3}分别给出了各个方法的计算结果、相对误差和绝对误差. 表\ref{table:1}中列出了各种方法的最大相对误差. 很显然, 第四种算法的误差相比于剩下三种方法的误差要小得多, 故之后的分析都基于第四种方法.
+我首先比较了不同算法在$\tau_{A}=\SI{1}{\second}, \tau_{B}=\SI{10}{\second}, \Delta t=\SI{0.2}{\second}$的情况下的误差, 以找到其中误差最小的方法.图\ref{fig:Q-3-1}、\ref{fig:Q-3-2-3}中分别给出了各个方法的计算结果、相对误差和绝对误差. 表\ref{table:1}中列出了各种方法的最大相对误差. 很显然, 第四种算法的误差相比于剩下三种方法的误差要小得多, 故之后的分析都基于第四种方法.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.6\textwidth]{Q_3_1.png}
@@ -248,15 +248,9 @@ A_0 x_0+A_1 x_1&=\frac{2}{5}
 \end{table}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.6\textwidth]{Q_3_2.png}
-	\caption{不同方法在$\tau_{A}=\SI{1}{\second}, \tau_{B}=\SI{10}{\second}, \Delta t=\SI{0.2}{\second}$的情况下的相对误差}
-	\label{fig:Q-3-2}
-\end{figure}
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.6\textwidth]{Q_3_3.png}
-	\caption{不同方法在$\tau_{A}=\SI{1}{\second}, \tau_{B}=\SI{10}{\second}, \Delta t=\SI{0.2}{\second}$的情况下的绝对误差}
-	\label{fig:Q-3-3}
+	\includegraphics[width=\textwidth]{Q_3_2_3.png}
+	\caption{不同方法在$\tau_{A}=\SI{1}{\second}, \tau_{B}=\SI{10}{\second}, \Delta t=\SI{0.2}{\second}$的情况下的(a)相对误差 (b)绝对误差}
+	\label{fig:Q-3-2-3}
 \end{figure}
 
 \subsection{不同的$\tau_{B}$下的行为}
@@ -289,27 +283,95 @@ A_0 x_0+A_1 x_1&=\frac{2}{5}
 \subsection{问题描述}
 给定机翼轮廓曲线上的一系列点,利用自然边界条件和三次样条插值方法,绘制出机翼的轮廓.
 \subsection{算法}
+三次样条插值公式:
+\begin{equation} 
+S(x)=\frac{\left(x_{j+1}-x\right)^{3}}{6 h_{j}} M_{j}+\frac{\left(x-x_{j}\right)^{3}}{6 h_{j}} M_{j+1}+c_{1} x+c_{2},\quad x\in [x_j, x_{j+1}],
+\label{eq:S}
+\end{equation}
+其中
+\begin{equation}
+h_{j}=x_{j+1}-x_j,
+\end{equation}
+\begin{equation} 
+c_{1}=\frac{y_{j+1}-y_{j}}{h_{j}}-\frac{1}{6} h_{j}\left(M_{j+1}-M_{j}\right),\quad c_{2}=\frac{y_{j} x_{j+1}-y_{j+1} x_{j}}{h_{j}}-\frac{1}{6} h_{j}\left(x_{j+1} M_{j}-x_{j} M_{j+1}\right),
+\end{equation}
+$M_{j}$满足方程组
+\begin{equation}
+\begin{bmatrix}
+2 & \lambda_1 & & & \\
+\mu_2 & 2 & \lambda_2 & & \\
+& \ddots & \ddots & \ddots & \\
+& & \mu_{n-1} & 2
+\end{bmatrix}
+\begin{bmatrix}
+M_1\\
+\vdots\\
+\vdots\\
+M_{n-1}
+\end{bmatrix}
+=
+\begin{bmatrix}
+d_1\\
+\vdots\\
+\vdots\\
+d_{n-1}
+\end{bmatrix}
+\label{eq:M}
+\end{equation}
+其中
+\begin{equation} 
+\mu_{j}=\frac{h_{j-1}}{h_{j-1}+h_{j}}, \quad \lambda_{j}=\frac{h_{j}}{h_{j-1}+h_{j}},\quad d_{j}=\frac{6}{h_{j-1}+h_{j}}\left[-\frac{y_{j}-y_{j-1}}{h_{j-1}}+\frac{y_{j+1}-y_{j}}{h_{j}}\right].
+\end{equation}
+为了画出轮廓曲线,在程序中先根据(\ref{eq:M})计算出$\bm{M}$(求解对称带状矩阵的算法见第5题),随后对$[x_0, x_n]$区间等间距取101个点（含两端）,根据(\ref{eq:S})计算函数值,并作图.
 
+源代码见\ref{subsec:Q_4}或\texttt{src/cpp/Problem\_4/main.cpp}
 \subsection{结果}
-\subsection{源代码}
+插值得到的曲线如图\ref{fig:Q_4}所示.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Q_4.png}
+	\caption{三次样条插值得到的机翼轮廓曲线,黄色圆点代表原数据.}
+	\label{fig:Q_4}
+\end{figure}
 \section{双精度浮点数和其IEEE754编码的互相转化}
 \subsection{问题描述}
 \subsection{算法}
 \subsection{结果}
-\subsection{源代码}
+\section{双精度浮点数和其IEEE754编码的互相转化}
+\subsection{问题描述}
+\subsection{算法}
+\subsection{结果}
+\section{双精度浮点数和其IEEE754编码的互相转化}
+\subsection{问题描述}
+\subsection{算法}
+\subsection{结果}
 \clearpage
 \appendix
 \section{附录}
 \subsection{源代码}
 \subsubsection{第一题}
 \label{subsec:Q_1}
+\noindent
+路径: \texttt{"src/cpp/Problem\_1/main.cpp"}
 \begin{spacing}{1.0}
 	\lstinputlisting[language=C++]{"src/cpp/Problem_1/main.cpp"}
 \end{spacing}
 
 \subsubsection{第三题}
 \label{subsec:Q_3}
+\noindent
+路径: \texttt{"src/cpp/Problem\_3/main.cpp"}
 \begin{spacing}{1.0}
 	\lstinputlisting[language=C++]{"src/cpp/Problem_3/main.cpp"}
 \end{spacing}
+
+\subsubsection{第四题}
+\label{subsec:Q_4}
+\noindent
+路径: \texttt{"src/cpp/Problem\_4/main.cpp"}. (关于对称带状矩阵的头文件\texttt{"SPB\_Matrix.h"},见第五题源代码).
+\begin{spacing}{1.0}
+	\lstinputlisting[language=C++]{"src/cpp/Problem_4/main.cpp"}
+\end{spacing}
+
+\subsection{第五题}
 \end{document}

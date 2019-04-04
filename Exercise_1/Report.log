@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2019.2.12)  2 APR 2019 21:01
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2019.2.12)  3 APR 2019 12:15
 entering extended mode
 **Report.tex
 
@@ -1398,31 +1398,26 @@ Package amsmath Warning: Cannot use `split' here;
 [3] [4]
 File: Q_3_1.png Graphic file (type QTm)
  <use  "Q_3_1.png" >
-File: Q_3_2.png Graphic file (type QTm)
- <use  "Q_3_2.png" >
-File: Q_3_3.png Graphic file (type QTm)
- <use  "Q_3_3.png" >
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
+File: Q_3_2_3.png Graphic file (type QTm)
+ <use  "Q_3_2_3.png" >
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 262.
+(hyperref)                removing `math shift' on input line 256.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\tau' on input line 262.
+(hyperref)                removing `\tau' on input line 256.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 262.
+(hyperref)                removing `subscript' on input line 256.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 262.
+(hyperref)                removing `math shift' on input line 256.
 
 File: Q_3_4.png Graphic file (type QTm)
 <use  "Q_3_4.png" >
@@ -1432,7 +1427,13 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[5] [6] [7] (C:\CTEX\MiKTeX\tex\latex\listings\lstlang1.sty
+[5] [6]
+File: Q_4.png Graphic file (type QTm)
+ <use  "Q_4.png" >
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[7] [8] (C:\CTEX\MiKTeX\tex\latex\listings\lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
 (C:\CTEX\MiKTeX\tex\latex\listings\lstlang1.sty
@@ -1442,30 +1443,32 @@ File: lstlang1.sty 2004/09/05 1.3 listings language file
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 305.
+nput line 357.
 
 ("D:\Documents\Course_Materials\3S\3S. Computational_Physics(A)_Chinese\Computa
-tional_Physics\Exercise_1\src/cpp/Problem_1/main.cpp" [8
+tional_Physics\Exercise_1\src/cpp/Problem_1/main.cpp" [9
 
-] [9])
+] [10])
 ("D:\Documents\Course_Materials\3S\3S. Computational_Physics(A)_Chinese\Computa
-tional_Physics\Exercise_1\src/cpp/Problem_3/main.cpp" [10] [11])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 313.
- [12]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 313.
+tional_Physics\Exercise_1\src/cpp/Problem_3/main.cpp" [11] [12])
+("D:\Documents\Course_Materials\3S\3S. Computational_Physics(A)_Chinese\Computa
+tional_Physics\Exercise_1\src/cpp/Problem_4/main.cpp" [13])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 377.
+ [14]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 377.
 
 ("D:\Documents\Course_Materials\3S\3S. Computational_Physics(A)_Chinese\Computa
 tional_Physics\Exercise_1\Report.aux")
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 313.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 313.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 377.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 377.
  ) 
 Here is how much of TeX's memory you used:
- 25468 strings out of 430478
- 512924 string characters out of 3191502
- 779523 words of memory out of 3000000
- 28258 multiletter control sequences out of 15000+200000
+ 25541 strings out of 430478
+ 514064 string characters out of 3191502
+ 808744 words of memory out of 3000000
+ 28328 multiletter control sequences out of 15000+200000
  15833 words of font info for 99 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 57i,18n,100p,839b,2362s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 57i,18n,100p,839b,2360s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Report.pdf (12 pages).
+Output written on Report.pdf (14 pages).
