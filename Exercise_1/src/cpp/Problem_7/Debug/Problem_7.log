@@ -1,0 +1,4 @@
+﻿  main.cpp
+d:\documents\course_materials\3s\3s. computational_physics(a)_chinese\computational_physics\exercise_1\src\cpp\problem_7\main.cpp(15): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+  Problem_7.vcxproj -> D:\Documents\Course_Materials\3S\3S. Computational_Physics(A)_Chinese\Computational_Physics\Exercise_1\src\cpp\Debug\Problem_7.exe
+  Problem_7.vcxproj -> D:\Documents\Course_Materials\3S\3S. Computational_Physics(A)_Chinese\Computational_Physics\Exercise_1\src\cpp\Debug\Problem_7.pdb (Partial PDB)

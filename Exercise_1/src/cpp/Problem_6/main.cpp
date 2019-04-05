@@ -15,8 +15,8 @@ vector<double> generate_b_vector(int n) {
 matrix generate_A_matrix(int n) {
 	matrix A(n, n);
 	for (int i = 0; i < n; i++) {
-		A[i][i] = 3;
 		A[i][n - 1 - i] = 0.5;
+		A[i][i] = 3;
 	}
 	for (int i = 0; i < n - 1; i++) {
 		A[i + 1][i] = A[i][i + 1] = -1;
@@ -38,23 +38,27 @@ struct solution {
 	}
 };
 
-solution solve(matrix A, vector<double> b, double epsilon) {
-	vector<double> x = zeros(b.size());
-	vector<double> r = b - A * x;
+solution solve(matrix & A, vector<double> & b, double epsilon) {
+	vector<double> && x = zeros(b.size());
+	vector<double> && r = b - A * x;
 	vector<double> r_0;
 	vector<double> p = r;
+	vector<double> temp;
 	solution result;
-	double alpha, beta;
+	double alpha, beta, l_r = norm(r), l_r_0;
 	int k = 0;
 	//cout << "b:" << endl;
 	//cout << b;
-	while (norm(r) / norm(b) > epsilon) {
-		cout << norm(r) << ' ' << norm(r) / norm(b) << endl;
-		alpha = norm(r) / (p * (A * p));
+	while (l_r > epsilon) {
+		//cout << norm(r) << ' ' << norm(r) / norm(b) << endl;
+		temp = A * p;
+		alpha = l_r * l_r / (p * temp);
 		x = x + alpha * p;
 		r_0 = r;
-		r = r - (alpha * A) * p;
-		beta = norm(r) / norm(r_0);
+		l_r_0 = l_r;
+		r = r - alpha * temp;
+		l_r = norm(r);
+		beta = l_r * l_r / (l_r_0 * l_r_0);
 		p = r + beta * p;
 		++k;
 	}
@@ -65,11 +69,11 @@ solution solve(matrix A, vector<double> b, double epsilon) {
 void showcase(int n) {
 	cout << "----------------------------------------------------------------" << endl;
 	cout << "n = " << n << endl;
-	vector<double> b = generate_b_vector(n);
-	matrix A = generate_A_matrix(n);
-	solution result = solve(A, b, 1e-3);
-	cout << "Solution:" << endl;
-	cout << result.x;
+	vector<double> && b = generate_b_vector(n);
+	matrix && A = generate_A_matrix(n);
+	solution result = solve(A, b, 1e-6);
+	cout << "Solution: 1 + " << endl;
+	cout << result.x - ones((result.x).size());
 	cout << "Number of iteration:" << endl;
 	cout << result.k << endl;
 	vector<double> residue = (A * result.x) - b;
@@ -81,8 +85,12 @@ void showcase(int n) {
 int main() {
 	ofstream out("log.txt");
 	std::cout.rdbuf(out.rdbuf());
-	showcase(10);
-	//showcase(100);
+
+	matrix::precision = 20;
+	int n;
+	cin >> n;
+	//showcase(10);
+	showcase(n);
 	//showcase(10000);
 	return 0;
 }

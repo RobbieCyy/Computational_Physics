@@ -1,32 +1,48 @@
 #pragma once
-#include <vector>
+#include "vector.h"
 #include <iostream>
 #include <iomanip>
 
 using namespace std;
+
 class matrix {
 private:
 	int n, m;
-	vector<vector<double>> data;
+	double * data;
 public:
 	static int precision;
 	matrix() {
+		//clog << "Default construct" << endl;
 		n = m = 0;
 	}
-	matrix(int nn = 0, int mm = 0) {
+	matrix(int nn, int mm) {
+		//clog << "Size specified construct" << endl;
 		n = nn;
 		m = mm;
-		data.resize(n);
-		for (int i = 0; i < n; i++) {
-			data[i].resize(m, 0);
+		data = new double[n * m];
+		for (int i = 0; i < n * m; i++) {
+			data[i] = 0;
 		}
 	}
 	matrix(const matrix & A) {
+		//clog << "Copy construct" << endl;
+		n = A.n;
+		m = A.m;
+		data = new double[n * m];
+		memcpy(data, A.data, n * m * sizeof(double));
+	}
+	matrix(matrix && A) {
+		//clog << "Move construct" << endl;
 		n = A.n;
 		m = A.m;
 		data = A.data;
+		A.data = nullptr;
 	}
-	vector<double> & operator [] (int);
+	~matrix() {
+		//clog << "Destruct" << endl;
+		delete[] data;
+	}
+	double * operator [] (int);
 	friend ostream & operator << (ostream &, matrix &);
 	friend matrix operator * (matrix &, matrix &);
 	friend matrix operator * (double, matrix &);
@@ -43,8 +59,8 @@ public:
 int matrix::precision = 8;
 
 // Operator [] for modify/get the data
-vector<double> & matrix::operator [](int index) {
-	return this->data[index];
+double * matrix::operator [](int index) {
+	return this->data + index * n;
 }
 
 // Output matrix
@@ -58,24 +74,14 @@ ostream & operator << (ostream & out, matrix & A) {
 	return out;
 }
 
-// Output vector
-ostream & operator << (ostream & out, vector<double> & x) {
-	for (size_t i = 0; i < x.size(); i++) {
-		out << setw(matrix::precision + 5) << setprecision(matrix::precision) << x[i] << endl;
-	}
-	return out;
-}
-
 // Matrix multiplication
 matrix operator * (matrix & A, matrix & B) {
 	matrix result(A.n, B.m);
 	if (A.m == B.n) {
 		for (int i = 0; i < A.n; i++) {
 			for (int j = 0; j < B.m; j++) {
-// Parallelization by openmp
-#pragma omp for
 				for (int k = 0; k < A.n; k++) {
-					result.data[i][j] += A.data[i][k] * B.data[k][j];
+					result[i][j] += A[i][k] * B[k][j];
 				}
 			}
 		}
@@ -88,7 +94,7 @@ matrix operator * (double a, matrix & A) {
 	matrix result(A);
 	for (int i = 0; i < A.n; i++) {
 		for (int j = 0; j < A.m; j++) {
-			result.data[i][j] *= a;
+			result[i][j] *= a;
 		}
 	}
 	return result;
@@ -102,8 +108,8 @@ vector<double> operator * (vector<double> & x, matrix & A) {
 		return x;
 	}
 	for (int i = 0; i < A.m; i++) {
-		for (size_t j = 0; j < x.size(); j++) {
-			result[i] += x[j] * A.data[j][i];
+		for (int j = 0; j < A.n; j++) {
+			result[i] += x[j] * A[j][i];
 		}
 	}
 	return result;
@@ -117,8 +123,8 @@ vector<double> operator * (matrix & A, vector<double> & x) {
 		return x;
 	}
 	for (int i = 0; i < A.n; i++) {
-		for (size_t j = 0; j < x.size(); j++) {
-			result[i] += A.data[i][j]*x[j];
+		for (int j = 0; j < A.m; j++) {
+			result[i] += A[i][j] * x[j];
 		}
 	}
 	return result;
@@ -129,7 +135,7 @@ matrix matrix::T(){
 	matrix result(m, n);
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < m; j++) {
-			result.data[j][i] = this->data[i][j];
+			result[j][i] = (*this)[i][j];
 		}
 	}
 	return result;
@@ -141,20 +147,46 @@ matrix zeros(int n, int m) {
 	return result;
 }
 
-// Zeros (vector)
-vector<double> zeros(int n) {
-	vector<double> result(n, 0);
-	return result;
-}
-
 // Ones (matrix)
 matrix ones(int n, int m) {
 	matrix result(n, m);
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
-			result.data[i][j] = 1;
+			result[i][j] = 1;
 		}
 	}
+	return result;
+}
+
+// Diagonal matrix
+matrix diag(vector<double> d) {
+	matrix result(d.size(), d.size());
+	for (int i = 0; i < result.n; i++) {
+		result[i][i] = d[i];
+	}
+	return result;
+}
+
+// Diagonal elements
+vector<double> matrix::diag(){
+	vector<double> result((n < m) ? n : m);
+	for (int i = 0; i < result.size(); i++) {
+		result[i] = (*this)[i][i];
+	}
+	return result;
+}
+
+// Output vector
+ostream & operator << (ostream & out, vector<double> & x) {
+	for (size_t i = 0; i < x.size(); i++) {
+		out << setw(matrix::precision + 5) << setprecision(matrix::precision) << x[i] << endl;
+	}
+	return out;
+}
+
+// Zeros (vector)
+vector<double> zeros(int n) {
+	vector<double> result(n, 0);
 	return result;
 }
 
@@ -164,31 +196,13 @@ vector<double> ones(int n) {
 	return result;
 }
 
-// Diagonal matrix
-matrix diag(vector<double> d) {
-	matrix result(d.size(), d.size());
-	for (int i = 0; i < result.n; i++) {
-		result.data[i][i] = d[i];
-	}
-	return result;
-}
-
-// Diagonal elements
-vector<double> matrix::diag(){
-	vector<double> result((n < m) ? n : m);
-	for (size_t i = 0; i < result.size(); i++) {
-		result[i] = data[i][i];
-	}
-	return result;
-}
-
 // Vector add
 vector<double> operator + (vector<double> & a, vector<double> & b) {
 	vector<double> result(a.size());
 	if (a.size() != b.size()) {
 		return a;
 	}
-	for (size_t i = 0; i < result.size(); i++) {
+	for (int i = 0; i < result.size(); i++) {
 		result[i] = a[i] + b[i];
 	}
 	return result;
@@ -200,7 +214,7 @@ vector<double> operator - (vector<double> & a, vector<double> & b) {
 	if (a.size() != b.size()) {
 		return a;
 	}
-	for (size_t i = 0; i < result.size(); i++) {
+	for (int i = 0; i < result.size(); i++) {
 		result[i] = a[i] - b[i];
 	}
 	return result;
@@ -209,7 +223,7 @@ vector<double> operator - (vector<double> & a, vector<double> & b) {
 // Number times vector
 vector<double> operator * (double k, vector<double> & a) {
 	vector<double> result(a.size());
-	for (size_t i = 0; i < a.size(); i++) {
+	for (int i = 0; i < a.size(); i++) {
 		result[i] = k * (a[i]);
 	}
 	return result;
@@ -221,13 +235,13 @@ double operator * (vector<double> & a, vector<double> & b) {
 	if (a.size() != b.size()) {
 		return 0;
 	}
-	for (size_t i = 0; i < a.size(); i++) {
+	for (int i = 0; i < a.size(); i++) {
 		result += a[i] * b[i];
 	}
 	return result;
 }
 
 // Vector norm
- double norm(vector<double> & a) {
+inline double norm(vector<double> & a) {
 	return sqrt(a * a);
 }
